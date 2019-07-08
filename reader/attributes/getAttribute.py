@@ -1,5 +1,7 @@
 import os
 import h5py
+from shapely.wkt import dumps, loads
+
 
 #HDF5 File Dirdory
 sep = os.sep
@@ -16,6 +18,11 @@ if isFileCheck :
     dic = f.attrs.keys()
     for i in dic:
         print('Name = {0} ,Value ={1}'.format(i,f.attrs.get(i)))
+
+    #bbox 만들기
+
+    bbox = dumps(loads('POLYGON((136 46, 136.5 46, 136.5 45.5, 136 45.5, 136 46))'))
+    print(bbox)
 
 
 
